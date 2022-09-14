@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+button,
+select,
+input,
+textarea {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+
+  //   &는 위의 button, select, ...등 선택자에서 선택된 것을 가리킴
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
