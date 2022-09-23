@@ -1,0 +1,26 @@
+/*
+  mobile (<768px)
+  * # of columns : 4
+  * unit : (100%-10px)/4 - 20px
+  * gutter : 20px
+  * container : 100%(화면 전체 사이즈) - 10px
+  * margin : 5px
+
+  Tablet (>=768px)
+  * # of columns : 12
+  * unit : (100%-60px)/4 - 20px
+  * gutter : 20px
+  * container : 100%(화면 전체 사이즈) - 60px
+  * max-container-size : 960px
+  * margin : 30px  
+
+  Desktop (>=1140px)
+  * # of columns : 12
+  * unit : 75px
+  * gutter : 20px
+  * container : 1140px
+  * max-container-size : 1140px
+  * margin : auto
+
+
+*/
