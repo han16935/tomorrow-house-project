@@ -1,0 +1,66 @@
+@mixin text-style-12px($color: false) {
+  font-size: $font-size-12px;
+  line-height: $line-height-12px;
+  letter-spacing: $letter-spacing-12px;
+}
+
+@mixin text-style-13px($color: false) {
+  font-size: $font-size-13px;
+  line-height: $line-height-13px;
+  letter-spacing: $letter-spacing-13px;
+}
+
+@mixin text-style-14px($color: false) {
+  font-size: $font-size-14px;
+  line-height: $line-height-14px;
+  letter-spacing: $letter-spacing-14px;
+}
+
+@mixin text-style-16px($color: false) {
+  font-size: $font-size-16px;
+  line-height: $line-height-16px;
+  letter-spacing: $letter-spacing-16px;
+}
+
+@mixin text-style-18px($color: false) {
+  font-size: $font-size-18px;
+  line-height: $line-height-18px;
+  letter-spacing: $letter-spacing-18px;
+}
+
+@mixin text-style-24px($color: false) {
+  font-size: $font-size-24px;
+  line-height: $line-height-24px;
+  letter-spacing: $letter-spacing-24px;
+}
+
+// 위 mixin 요소를 하나로 합침
+@mixin text-style($font-size, $color: false) {
+  @if ($font-size: 12px) {
+    @include text-style-12px();
+  }
+
+  @if ($font-size: 13px) {
+    @include text-style-13px();
+  }
+
+  @if ($font-size: 14px) {
+    @include text-style-14px();
+  }
+
+  @if ($font-size: 16px) {
+    @include text-style-16px();
+  }
+
+  @if ($font-size: 18px) {
+    @include text-style-18px();
+  }
+
+  @if ($font-size: 24px) {
+    @include text-style-24px();
+  }
+
+  @if (type-of($color) == color) {
+    color: $color;
+  }
+}
