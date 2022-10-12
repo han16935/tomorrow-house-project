@@ -1,26 +1,82 @@
 /*
   mobile (<768px)
   * # of columns : 4
+  * fixture(가칭) : sm
   * unit : (100%-10px)/4 - 20px
   * gutter : 20px
   * container : 100%(화면 전체 사이즈) - 10px
-  * margin : 5px
+  * margin : 5px, margin은 양 쪽을 합친 것이 아닌 한 쪽 px만 작성됨, 즉 양 쪽에 5px씩 padding 부여
 
   Tablet (>=768px)
   * # of columns : 12
+  * fixture : md
   * unit : (100%-60px)/4 - 20px
   * gutter : 20px
   * container : 100%(화면 전체 사이즈) - 60px
   * max-container-size : 960px
-  * margin : 30px  
+  * margin : 30px 
 
   Desktop (>=1140px)
   * # of columns : 12
+  * fixture : lg
   * unit : 75px
   * gutter : 20px
   * container : 1140px
   * max-container-size : 1140px
   * margin : auto
-
-
 */
+$gutter: 20px;
+$sm-margin: 5px;
+$sm-columns: 4;
+
+$md-breakpoint: 768px;
+$md-margin: 30px;
+$md-columns: 12;
+$md-max-container-size: 960px + $md-margin * 2;
+
+$lg-breakpoint: 1200px;
+$lg-unit: 75px;
+$lg-columns: 12;
+$lg-max-container-size: ($lg-unit + $gutter) * $lg-columns;
+
+.container {
+  width: 100%;
+  padding: 0 $sm-margin;
+  margin: 0 auto; // container를 항상 가운데 정렬시키기 위해
+  .row {
+    // .container 과 .row를 동시에 가진 요소를 대상으로 선택
+    display: flex;
+    flex-wrap: wrap; // 가로가 큰 요소가 오면 억지로 한 줄로 만들지 않고, 아래로 내리기 위해
+  }
+
+  [class^='col-'] {
+    // html 요소 중 class를 가지고, 그 클래스가 col-로 시작하는 모든 요소 선택
+    padding: 0 $gutter / 2;
+  }
+
+  @for $i from 1 through $sm-columns {
+    .col-sm-#{$i} {
+      width: percentage($i / $sm-columns);
+    }
+  }
+
+  @media screen and (min-width: $md-breakpoint) {
+    max-width: $md-max-container-size;
+    padding: 0 $md-margin;
+    @for $j from 1 through $md-columns {
+      .col-md-#{$j} {
+        width: percentage($j / $md-columns);
+      }
+    }
+  }
+
+  @media screen and (min-width: $lg-breakpoint) {
+    width: $lg-max-container-size;
+    padding: 0;
+    @for $k from 1 through $lg-columns {
+      .col-lg-#{$k} {
+        width: ($lg-unit + $gutter) * $k;
+      }
+    }
+  }
+}
