@@ -1,0 +1,27 @@
+// media query @mixin 이용해서 작성
+
+/*
+  .class{
+    @include responsive(T){
+        ...(tablet에서 적용)
+    }
+
+    @include responsive(D){
+        ...(Desktop에서 적용)
+    }
+}
+*/
+
+@mixin responsive($screen) {
+  @if ($screen == 'T') {
+    @media screen and (min-width: $md-breakpoint) {
+      @content;
+    }
+  }
+
+  @if ($screen == 'D') {
+    @media screen and (min-width: $lg-breakpoint) {
+      @content;
+    }
+  }
+}
