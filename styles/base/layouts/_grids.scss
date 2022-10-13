@@ -29,12 +29,11 @@ $gutter: 20px;
 $sm-margin: 5px;
 $sm-columns: 4;
 
-$md-breakpoint: 768px;
 $md-margin: 30px;
 $md-columns: 12;
 $md-max-container-size: 960px + $md-margin * 2;
+// 960px 그대로 둘 경우, md일 경우 container의 padding 때문에 요소가 있는 row의 최대 사이즈가 960 - 30 * 2로 900이 됨
 
-$lg-breakpoint: 1200px;
 $lg-unit: 75px;
 $lg-columns: 12;
 $lg-max-container-size: ($lg-unit + $gutter) * $lg-columns;
@@ -60,7 +59,7 @@ $lg-max-container-size: ($lg-unit + $gutter) * $lg-columns;
     }
   }
 
-  @media screen and (min-width: $md-breakpoint) {
+  @include responsive(T) {
     max-width: $md-max-container-size;
     padding: 0 $md-margin;
     @for $j from 1 through $md-columns {
@@ -70,7 +69,7 @@ $lg-max-container-size: ($lg-unit + $gutter) * $lg-columns;
     }
   }
 
-  @media screen and (min-width: $lg-breakpoint) {
+  @include responsive(D) {
     width: $lg-max-container-size;
     padding: 0;
     @for $k from 1 through $lg-columns {
