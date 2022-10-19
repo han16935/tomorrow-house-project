@@ -1,8 +1,12 @@
 @import './base/constants/color';
 @import './base/constants/typography';
 @import './base/constants/breakpoint';
+
 @import './mixins/text-style';
 @import './mixins/responsive';
+@import './mixins/positions';
+@import './mixins/flexbox';
+
 @import './base/layouts/grids';
 @import './base/custom-reset';
 @import './base/fonts';

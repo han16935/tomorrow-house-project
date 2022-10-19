@@ -1,0 +1,66 @@
+// scss의 map은 () 로 선언
+
+$flex-map: (
+  start: flex-start,
+  end: flex-end,
+  around: space-around,
+  between: space-between,
+  center: center,
+  stretch: stretch,
+);
+// scss에서의 함수는 mixin과 달리 값을 return해줌.
+// cf>mixin은 function과 달리 내부 코드를 return
+
+@function _get-flex-value($key) {
+  /*
+       map-get : 첫 번째 인자로 들어온 map에서 
+                 두 번째 인자로 들어온 key에 대응하는 value 반환
+    */
+  @return map-get($flex-map, $key);
+}
+
+// 아래처럼 조건문을 반복하는 것보다는 scss의 map을 이용(js의 object 포지션)
+// @function _get-flex-value($key) {
+//   @if ($key == 'start') {
+//     @return flex-start;
+//   }
+
+//   @if ($key == 'end') {
+//     @return flex-end;
+//   }
+
+//   @if ($key == 'around') {
+//     @return space-around;
+//   }
+
+//   @if ($key == 'between') {
+//     @return space-between;
+//   }
+
+//   @if ($key == 'center') {
+//     @return center;
+//   }
+
+//   @if ($key == 'stretch') {
+//     @return stretch;
+//   }
+// }
+
+@mixin flexbox($jc: center, $ai: center) {
+  display: flex;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ai);
+}
+
+@mixin inline-flexbox($jc: center, $ai: center) {
+  display: inline-flex;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ai);
+}
+
+@mixin column-flexbox($jc: center, $ai: center) {
+  display: flex;
+  flex-direction: column;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ai);
+} ;
