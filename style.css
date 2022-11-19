@@ -585,4 +585,60 @@ template {
 .star-rating-24 {
   font-size: 24px; }
 
+.price-16, .price-20, .price-32, .price-discount {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 1;
+  color: #191a20; }
+  .price-16 .amount, .price-20 .amount, .price-32 .amount, .price-discount .amount {
+    font-family: "Tahoma", sans-serif; }
+  .price-16 .currency, .price-20 .currency, .price-32 .currency, .price-discount .currency {
+    font-family: "Noto Sans KR", sans-serif; }
+
+.price-16 .amount {
+  font-weight: 700;
+  letter-spacing: -0.02em; }
+
+.price-16 .currency {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.001em;
+  font-weight: 700; }
+
+.price-20 .amount {
+  font-weight: 700;
+  letter-spacing: -0.02em; }
+
+.price-20 .currency {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.001em;
+  font-weight: 700; }
+
+.price-32 .amount {
+  font-weight: 700;
+  letter-spacing: -0.02em; }
+
+.price-32 .currency {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.142857;
+  letter-spacing: -0.02em; }
+
+.price-discount .amount {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #8c8d96;
+  text-decoration: line-through; }
+
+.price-discount .currency {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.001em;
+  font-weight: 400;
+  color: #8c8d96; }
+
 /*# sourceMappingURL=style.css.map */

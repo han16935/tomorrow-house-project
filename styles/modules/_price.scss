@@ -1,0 +1,72 @@
+// 16, 20, 32, discount 만들기
+%price-base {
+  @include flexbox(start);
+  line-height: 1;
+  color: $dark;
+  .amount {
+    font-family: $price-font-family;
+  }
+
+  .currency {
+    font-family: $main-font-family;
+  }
+}
+
+.price-16 {
+  @extend %price-base;
+  .amount {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .currency {
+    @include text-style(14px);
+    font-weight: 700;
+  }
+}
+
+.price-20 {
+  @extend %price-base;
+  .amount {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .currency {
+    @include text-style(16px);
+    font-weight: 700;
+  }
+}
+
+.price-32 {
+  @extend %price-base;
+  .amount {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .currency {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.142857;
+    letter-spacing: -0.02em;
+  }
+}
+
+.price-discount {
+  @extend %price-base;
+  .amount {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: $secondary;
+    text-decoration: line-through;
+  }
+
+  .currency {
+    @include text-style(14px);
+    font-weight: 400;
+    color: $secondary;
+  }
+}
