@@ -1,0 +1,65 @@
+// theme : primary, secondary, outlined, ghost
+// condition : default, hover, disabled
+// primary : "구매하기" 등 주요 버튼에 사용
+%primary-button-base {
+  @include text-style(18px);
+  @include inline-column-flexbox();
+  min-width: 200px;
+  min-height: 55px;
+  font-weight: 700;
+  border-radius: 4px;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    opacity: 0.4;
+  }
+}
+
+.primary-button {
+  @extend %primary-button-base;
+  color: $white;
+  background-color: $blue;
+  &:hover {
+    background-color: $blue-dark;
+  }
+}
+
+.secondary-button {
+  @extend %primary-button-base;
+  color: $primary;
+  background-color: $border;
+  &:hover {
+    background-color: $tertiary;
+  }
+}
+
+.outlined-button {
+  @extend %primary-button-base;
+  color: $blue;
+  background-color: $white;
+  border: 1px solid $blue;
+  &:hover {
+    background-color: $blue-light;
+  }
+}
+
+.ghost-button {
+  @extend %primary-button-base;
+  color: $primary;
+  background-color: $white;
+  &:hover {
+    color: $secondary;
+  }
+}
+
+////////////////////////////////////////////
+/// secondary : "스크랩북 보기", "폴더에 담기" 등 사용
+%secondary-button-base {
+  @extend %primary-button-base;
+  @include text-style(14px);
+  letter-spacing: -0.02em;
+  &.32px {
+  }
+}
