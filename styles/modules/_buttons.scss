@@ -1,65 +1,167 @@
-// theme : primary, secondary, outlined, ghost
-// condition : default, hover, disabled
-// primary : "구매하기" 등 주요 버튼에 사용
-%primary-button-base {
-  @include text-style(18px);
-  @include inline-column-flexbox();
-  min-width: 200px;
-  min-height: 55px;
+/*
+  1. Design : Primary, Secondary, Outlined, Ghost
+  2. Size(height 기준) : 55px(18), 48px(16), 40px(16), 32px(14)
+  3. State : Default, Hover, Disabled
+
+  button display는 inline, inline-flex로
+  button의 width는 내부 content에 따라 달라지므로, height를 기준으로 작성하자!
+
+  &:not(.disabled):hover{
+   button primary 클래스 중 disabled가 아닌 상태에서 hover하였을 때 적용 (근데 안 됨?) 
+
+    - 11/23 당시에는 &.disabled:hover 로 해야만 적용됨
+  }
+*/
+
+%button-base {
+  @include inline-flexbox();
+  padding: 0 8px;
   font-weight: 700;
   border-radius: 4px;
-  &:hover {
-    cursor: pointer;
-  }
-
+  transition: background-color 500ms ease-in-out;
   &.disabled {
+    cursor: not-allowed;
     opacity: 0.4;
   }
 }
 
-.primary-button {
-  @extend %primary-button-base;
+.button-primary {
+  @extend %button-base;
   color: $white;
   background-color: $blue;
   &:hover {
     background-color: $blue-dark;
   }
+
+  &.disabled:hover {
+    background-color: $blue;
+  }
 }
 
-.secondary-button {
-  @extend %primary-button-base;
+.button-secondary {
+  @extend %button-base;
   color: $primary;
   background-color: $border;
+
   &:hover {
     background-color: $tertiary;
   }
+
+  &.disabled:hover {
+    background-color: $border;
+  }
 }
 
-.outlined-button {
-  @extend %primary-button-base;
+.button-outlined {
+  @extend %button-base;
   color: $blue;
   background-color: $white;
   border: 1px solid $blue;
+
   &:hover {
     background-color: $blue-light;
   }
+
+  &.disabled:hover {
+    background-color: $white;
+  }
 }
 
-.ghost-button {
-  @extend %primary-button-base;
+.button-ghost {
+  @extend %button-base;
   color: $primary;
-  background-color: $white;
+  background-color: transparent; // figma에서는 white지만, 명시적으로 작성함
   &:hover {
     color: $secondary;
   }
-}
 
-////////////////////////////////////////////
-/// secondary : "스크랩북 보기", "폴더에 담기" 등 사용
-%secondary-button-base {
-  @extend %primary-button-base;
-  @include text-style(14px);
-  letter-spacing: -0.02em;
-  &.32px {
+  &.disabled:hover {
+    color: $primary;
   }
 }
+
+.btn-55 {
+  @include text-style(18);
+  height: 55px;
+}
+
+.btn-48 {
+  @include text-style(16);
+  height: 48px;
+}
+
+.btn-40 {
+  @include text-style(16);
+  height: 40px;
+}
+
+.btn-32 {
+  @include text-style(14);
+  height: 32px;
+}
+// 과거 강의 보지 않고 작성
+// theme : primary, secondary, outlined, ghost
+// condition : default, hover, disabled
+// primary : "구매하기" 등 주요 버튼에 사용
+// %primary-button-base {
+//   @include text-style(18px);
+//   @include inline-column-flexbox();
+//   min-width: 200px;
+//   min-height: 55px;
+//   font-weight: 700;
+//   border-radius: 4px;
+//   &:hover {
+//     cursor: pointer;
+//   }
+
+//   &.disabled {
+//     opacity: 0.4;
+//   }
+// }
+
+// .primary-button {
+//   @extend %primary-button-base;
+//   color: $white;
+//   background-color: $blue;
+//   &:hover {
+//     background-color: $blue-dark;
+//   }
+// }
+
+// .secondary-button {
+//   @extend %primary-button-base;
+//   color: $primary;
+//   background-color: $border;
+//   &:hover {
+//     background-color: $tertiary;
+//   }
+// }
+
+// .outlined-button {
+//   @extend %primary-button-base;
+//   color: $blue;
+//   background-color: $white;
+//   border: 1px solid $blue;
+//   &:hover {
+//     background-color: $blue-light;
+//   }
+// }
+
+// .ghost-button {
+//   @extend %primary-button-base;
+//   color: $primary;
+//   background-color: $white;
+//   &:hover {
+//     color: $secondary;
+//   }
+// }
+
+// ////////////////////////////////////////////
+// /// secondary : "스크랩북 보기", "폴더에 담기" 등 사용
+// %secondary-button-base {
+//   @extend %primary-button-base;
+//   @include text-style(14px);
+//   letter-spacing: -0.02em;
+//   &.32px {
+//   }
+// }
