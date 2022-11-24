@@ -11,6 +11,7 @@
 
 .page-move {
   @extend %page-base;
+  width: 26px;
   .ic-chevron {
     font-size: 20px;
     color: $primary;

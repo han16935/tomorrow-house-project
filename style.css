@@ -641,4 +641,213 @@ template {
   font-weight: 400;
   color: #8c8d96; }
 
+/*
+  1. Design : Primary, Secondary, Outlined, Ghost
+  2. Size(height 기준) : 55px(18), 48px(16), 40px(16), 32px(14)
+  3. State : Default, Hover, Disabled
+
+  button display는 inline, inline-flex로
+  button의 width는 내부 content에 따라 달라지므로, height를 기준으로 작성하자!
+
+  &:not(.disabled):hover{
+   button primary 클래스 중 disabled가 아닌 상태에서 hover하였을 때 적용 (근데 안 됨?) 
+       - Solution : disabled는 클래스명이 아닌 가상 클래스로서  적용하는 것이었음 
+          ex) <button class="disabled">(X)
+              <button class="..." disabled> (O)
+
+    - 11/23 당시에는 &.disabled:hover 로 해야만 적용됨
+  }
+*/
+.button-primary, .button-secondary, .button-outlined, .button-ghost {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: background-color 500ms ease-in-out; }
+  .button-primary:disabled, .button-secondary:disabled, .button-outlined:disabled, .button-ghost:disabled {
+    cursor: not-allowed;
+    opacity: 0.4; }
+
+.button-primary {
+  color: #fff;
+  background-color: #3da5f5; }
+  .button-primary:not(:disabled):hover {
+    background-color: #3186c4; }
+
+.button-secondary {
+  color: #3f4150;
+  background-color: #e0e2e7; }
+  .button-secondary:not(:disabled):hover {
+    background-color: #b2b3b9; }
+
+.button-outlined {
+  color: #3da5f5;
+  background-color: #fff;
+  border: 1px solid #3da5f5; }
+  .button-outlined:not(:disabled):hover {
+    background-color: #ecf6fe; }
+
+.button-ghost {
+  color: #3f4150;
+  background-color: transparent;
+  transition: color 500ms ease-in-out; }
+  .button-ghost:not(:disabled):hover {
+    color: #8c8d96; }
+
+.btn-55 {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.002em;
+  height: 55px; }
+
+.btn-48 {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.001em;
+  height: 48px; }
+
+.btn-40 {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.001em;
+  height: 40px; }
+
+.btn-32 {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.001em;
+  height: 32px; }
+
+/*
+   button과 마찬가지로 width가 아닌 height 고정
+   hover 등 상태 존재
+
+   form 테두리와 내부 text와의 칸은 padding으로 조절
+   font-weight, color 등은 내부 text의 속성
+   apperance는 select 우측의 화살표
+   form에 text가 입력되어 있는 상황이 아닌, placeholder 상태로서의 text를 조절하고 싶을 때는 &::placeholder{}를 통해 조정하기(::placeholder{}내부에서 조절 가능한 것은 한정돼 있음)
+*/
+.form-select,
+.form-input {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.001em;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 8px 16px;
+  font-weight: 400;
+  color: #3f4150;
+  background-color: #fff;
+  border: 1px solid #e0e2e7;
+  border-radius: 4px;
+  transition: background-color 200ms ease-in-out;
+  appearance: none; }
+  .form-select::placeholder,
+  .form-input::placeholder {
+    color: #b2b3b9; }
+  .form-select:not(:disabled):hover,
+  .form-input:not(:disabled):hover {
+    background-color: #f7f8fa; }
+  .form-select:disabled,
+  .form-input:disabled {
+    cursor: not-allowed;
+    opacity: 0.4; }
+
+.form-select,
+.form-input {
+  text-overflow: ellipsis; }
+
+.select-group {
+  position: relative;
+  /* 위 상태로 select 태그를 유지할 경우, 아이콘을 클릭하면 select 응답 X, 그 이유는 absolute인 아이콘에 비해 select 태그는 static이므로, 아이콘이 select 태그 위에 떠 있는 상태여서 select를 누른 것 이 아님
+     - 이를 막기 위해, i 태그에 pointer-events : none 입력 (위 코드는 쉽게 말하면 클릭과 관련이 없는 요소로 만듦, 즉 아이콘을 지나 아래 select가 클릭됨) 
+  */ }
+  .select-group.is-active .form-select {
+    border: 1px solid #3da5f5; }
+  .select-group.is-active .ic-caret {
+    color: #3da5f5; }
+  .select-group.is-active:hover {
+    background-color: #f7f8fa; }
+  .select-group:hover {
+    background-color: #f7f8fa; }
+  .select-group .form-select {
+    padding-right: 40px; }
+  .select-group .ic-caret {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 8px;
+    font-size: 24px;
+    color: #b2b3b9;
+    pointer-events: none; }
+
+.form-input {
+  padding-left: 40px; }
+
+.input-group {
+  position: relative; }
+  .input-group .ic-search {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: #8c8d96;
+    size: 20px; }
+
+.page-move, .page-item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 26px;
+  border: 1px solid #e0e2e7;
+  border-radius: 4px; }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.page-move {
+  width: 26px; }
+  .page-move .ic-chevron {
+    font-size: 20px;
+    color: #3f4150; }
+  .page-move.page-prev {
+    margin-right: 24px;
+    transform: rotate(90deg); }
+  .page-move.page-next {
+    margin-left: 24px;
+    transform: rotate(-90deg); }
+  .page-move:hover {
+    opacity: 0.5; }
+
+.page-items {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .page-items:last-child {
+    margin-right: 0; }
+
+.page-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.001em;
+  color: #3f4150;
+  padding: 0 4px;
+  margin-right: 4px;
+  font-weight: 700; }
+  .page-item:hover {
+    color: #3da5f5; }
+  .page-item.is-active {
+    color: #fff;
+    background-color: #3da5f5; }
+    .page-item.is-active:hover {
+      color: #fff; }
+
 /*# sourceMappingURL=style.css.map */
