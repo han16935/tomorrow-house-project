@@ -1,0 +1,59 @@
+%page-base {
+  @include inline-flexbox();
+  height: 26px;
+  border: 1px solid $border;
+  border-radius: 4px;
+}
+
+.pagination {
+  @include flexbox();
+}
+
+.page-move {
+  @extend %page-base;
+  .ic-chevron {
+    font-size: 20px;
+    color: $primary;
+  }
+  &.page-prev {
+    margin-right: 24px;
+    transform: rotate(90deg);
+  }
+
+  &.page-next {
+    margin-left: 24px;
+    transform: rotate(-90deg);
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.page-items {
+  @include flexbox;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.page-item {
+  @extend %page-base;
+  @include flexbox();
+  @include text-style(16, $primary);
+  padding: 0 4px;
+  margin-right: 4px;
+  font-weight: 700;
+  &:hover {
+    color: $blue;
+  }
+
+  &.is-active {
+    color: $white;
+    background-color: $blue;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
