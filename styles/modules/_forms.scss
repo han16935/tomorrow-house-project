@@ -19,27 +19,76 @@
   background-color: $white;
   border: 1px solid $border;
   border-radius: 4px;
+  transition: background-color 200ms ease-in-out;
   appearance: none;
 
   &::placeholder {
     color: $tertiary;
   }
 
+  &:not(:disabled):hover {
+    background-color: $background;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+
+.form-select,
+.form-input {
+  @extend %form-base;
+  text-overflow: ellipsis;
+}
+
+.select-group {
+  position: relative;
+  /* 위 상태로 select 태그를 유지할 경우, 아이콘을 클릭하면 select 응답 X, 그 이유는 absolute인 아이콘에 비해 select 태그는 static이므로, 아이콘이 select 태그 위에 떠 있는 상태여서 select를 누른 것 이 아님
+     - 이를 막기 위해, i 태그에 pointer-events : none 입력 (위 코드는 쉽게 말하면 클릭과 관련이 없는 요소로 만듦, 즉 아이콘을 지나 아래 select가 클릭됨) 
+  */
+
+  &.is-active {
+    .form-select {
+      border: 1px solid $blue;
+    }
+
+    .ic-caret {
+      color: $blue;
+    }
+
+    &:hover {
+      background-color: $background;
+    }
+  }
+
   &:hover {
     background-color: $background;
   }
 
-  &.disabled {
-    cursor: not-allowed;
-    opacity: 0.4;
+  .form-select {
+    padding-right: 40px;
   }
 
-  &:hover.disabled {
-    background-color: $white;
+  .ic-caret {
+    @include pos-center-y;
+    right: 8px;
+    font-size: 24px;
+    color: $tertiary;
+    pointer-events: none;
   }
 }
 
-select,
-input {
-  @extend %form-base;
+.form-input {
+  padding-left: 40px;
+}
+
+.input-group {
+  position: relative;
+  .ic-search {
+    @include pos-center-y;
+    left: 10px;
+    color: $secondary;
+    size: 20px;
+  }
 }
