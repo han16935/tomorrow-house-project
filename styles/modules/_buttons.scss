@@ -8,6 +8,9 @@
 
   &:not(.disabled):hover{
    button primary 클래스 중 disabled가 아닌 상태에서 hover하였을 때 적용 (근데 안 됨?) 
+       - Solution : disabled는 클래스명이 아닌 가상 클래스로서  적용하는 것이었음 
+          ex) <button class="disabled">(X)
+              <button class="..." disabled> (O)
 
     - 11/23 당시에는 &.disabled:hover 로 해야만 적용됨
   }
@@ -19,64 +22,51 @@
   font-weight: 700;
   border-radius: 4px;
   transition: background-color 500ms ease-in-out;
-  &.disabled {
+  &:disabled {
     cursor: not-allowed;
     opacity: 0.4;
   }
 }
 
-.button-primary {
+.btn-primary {
   @extend %button-base;
   color: $white;
   background-color: $blue;
-  &:hover {
-    background-color: $blue-dark;
-  }
 
-  &.disabled:hover {
-    background-color: $blue;
+  &:not(:disabled):hover {
+    background-color: $blue-dark;
   }
 }
 
-.button-secondary {
+.btn-secondary {
   @extend %button-base;
   color: $primary;
   background-color: $border;
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: $tertiary;
-  }
-
-  &.disabled:hover {
-    background-color: $border;
   }
 }
 
-.button-outlined {
+.btn-outlined {
   @extend %button-base;
   color: $blue;
   background-color: $white;
   border: 1px solid $blue;
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: $blue-light;
-  }
-
-  &.disabled:hover {
-    background-color: $white;
   }
 }
 
-.button-ghost {
+.btn-ghost {
   @extend %button-base;
   color: $primary;
   background-color: transparent; // figma에서는 white지만, 명시적으로 작성함
-  &:hover {
-    color: $secondary;
-  }
+  transition: color 500ms ease-in-out;
 
-  &.disabled:hover {
-    color: $primary;
+  &:not(:disabled):hover {
+    color: $secondary;
   }
 }
 
