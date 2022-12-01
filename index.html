@@ -22,8 +22,57 @@
     <meta name="msapplication-TileColor" content="#2b5797" />
     <meta name="theme-color" content="#ffffff" />
   </head>
+
   <body>
-    <i class="ic-bookmark"></i>
-    <i class="ic-chevron"></i>
+    <header>
+      <h1 aria-label="오늘의 집">
+        <a href="#">
+          <img src="./assets/Logo.svg" />
+        </a>
+      </h1>
+
+      <nav class="sm-hidden">
+        <h2 class="visually-hidden">메뉴 바</h2>
+        <!--nav 등 section tag는 h 태그 사용-->
+        <ul>
+          <li><a href="#">커뮤니티</a></li>
+          <li><a href="#">스토어</a></li>
+          <li><a href="#">인테리어시공</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="sm-only" aria-label="메뉴 열기 버튼">
+        <i class="ic-menu"></i>
+      </button>
+
+      <button type="button" class="lg-hidden" aria-label="검색창 열기 버튼">
+        <i class="ic-search"></i>
+      </button>
+
+      <a href="#" aria-label="장바구니 버튼">
+        <i class="ic-cart"></i>
+      </a>
+
+      <div class="input-group lg-only">
+        <input type="text" placeholder="스토어 검색" class="form-input" />
+        <i class="ic-search"></i>
+      </div>
+
+      <a href="#" class="sm-hidden" arial-label="스크랩북 홈페이지 이동"
+        ><i class="ic-bookmark"></i
+      ></a>
+
+      <a href="#" class="sm-hidden" aria-label="내 소식 페이지 이동"
+        ><i class="ic-bell"></i
+      ></a>
+    </header>
+
+    <button type="button" class="avatar-32 sm-hidden" aria-label="유저 정보">
+      <img src="./assets/img-user-01.jpg" />
+    </button>
+
+    <button type="button" class="sm-hidden btn-primary btn-40">
+      글쓰기 <i class="ic-chevron" aria-hidden></i>
+    </button>
   </body>
 </html>
