@@ -28,47 +28,25 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
-            <div class="gnb-left">
-              <h1 class="gnb-heading" aria-label="오늘의 집">
-                <a href="#">
-                  <img src="./assets/Logo.svg" />
-                </a>
-              </h1>
-
-              <nav class="sm-hidden gnb-nav">
-                <h2 class="visually-hidden">메뉴 바</h2>
-                <!--nav 등 section tag는 h 태그 사용-->
-                <ul class="gnb-nav-list">
-                  <li><a href="#" class="gnb-list-item">커뮤니티</a></li>
-                  <li><a href="#" class="gnb-list-item">스토어</a></li>
-                  <li><a href="#" class="gnb-list-item">인테리어시공</a></li>
-                </ul>
-              </nav>
-
-              <button
-                type="button"
-                class="sm-only gnb-menu-btn"
-                aria-label="메뉴 열기 버튼"
-              >
-                <i class="ic-menu"></i>
-              </button>
-            </div>
-
-            <div class="gnb-right">
-              <div class="gnb-button-group">
-                <button
-                  type="button"
-                  class="lg-hidden gnb-search-open"
-                  aria-label="검색창 열기 버튼"
-                >
-                  <i class="ic-search"></i>
+            <div class="gnb-wrapper">
+              <div class="gnb-left">
+                <button class="gnb-icon gnb-menu sm-only">
+                  <i class="ic-menu" aria-label="메뉴"></i>
                 </button>
 
-                <a href="#" class="gnb-cart" aria-label="장바구니 버튼">
-                  <i class="ic-cart"></i>
-                </a>
+                <h1 aria-label="오늘의 집" class="gnb-title">
+                  <a href="#"><img src="./assets/Logo.svg" /></a>
+                </h1>
 
-                <div class="input-group lg-only">
+                <ul class="sm-hidden gnb-list">
+                  <li><a href="#">커뮤니티</a></li>
+                  <li class="gnb-list-active"><a href="#">스토어</a></li>
+                  <li><a href="#">인테리어시공</a></li>
+                </ul>
+              </div>
+
+              <div class="gnb-right">
+                <div class="input-group lg-only gnb-input">
                   <input
                     type="text"
                     placeholder="스토어 검색"
@@ -77,32 +55,44 @@
                   <i class="ic-search"></i>
                 </div>
 
-                <a
-                  href="#"
-                  class="sm-hidden gnb-bookmark"
-                  arial-label="스크랩북 홈페이지 이동"
-                  ><i class="ic-bookmark"></i
-                ></a>
+                <div class="gnb-utils">
+                  <button class="gnb-icon lg-hidden">
+                    <i class="ic-search" aria-label="검색"></i>
+                  </button>
 
-                <a
-                  href="#"
-                  class="sm-hidden gnb-bell"
-                  aria-label="내 소식 페이지 이동"
-                  ><i class="ic-bell"></i
-                ></a>
+                  <a href="#" class="gnb-icon sm-hidden">
+                    <i class="ic-bookmark"></i>
+                  </a>
+
+                  <a href="#" class="gnb-icon sm-hidden">
+                    <i class="ic-bell"></i>
+                  </a>
+                  <a href="#" class="gnb-icon"
+                    ><i class="ic-cart" aria-label="장바구니"></i
+                  ></a>
+
+                  <!-- 장바구니, 사진 사이 요소는 비로그인 시 적용 -->
+                  <ul class="gnb-unauth visually-hidden">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">비로그인</a></li>
+                  </ul>
+                  <!------------------------------>
+                  <button
+                    class="avatar-32 sm-hidden"
+                    aria-label="사용자 이미지"
+                  >
+                    <img src="./assets/img-user-01.jpg" />
+                  </button>
+                </div>
 
                 <button
                   type="button"
-                  class="avatar-32 sm-hidden gnb-user"
-                  aria-label="유저 정보"
+                  class="btn-primary btn-40 sm-hidden gnb-button"
                 >
-                  <img src="./assets/img-user-01.jpg" />
+                  글쓰기
+                  <i class="ic-chevron"></i>
                 </button>
               </div>
-
-              <button type="button" class="sm-hidden btn-primary btn-40">
-                글쓰기 <i class="ic-chevron" aria-hidden></i>
-              </button>
             </div>
           </div>
         </div>
