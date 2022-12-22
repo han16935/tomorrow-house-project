@@ -63,4 +63,11 @@ $flex-map: (
   flex-direction: column;
   justify-content: _get-flex-value($jc);
   align-items: _get-flex-value($ai);
+}
+
+@mixin inline-column-flexbox($jc: center, $ai: center) {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ai);
 } ;
