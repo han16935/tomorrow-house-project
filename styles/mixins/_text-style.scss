@@ -36,27 +36,27 @@
 
 // 위 mixin 요소를 하나로 합침
 @mixin text-style($font-size, $color: false) {
-  @if ($font-size: 12px) {
+  @if ($font-size == 12) {
     @include text-style-12px();
   }
 
-  @if ($font-size: 13px) {
+  @if ($font-size == 13) {
     @include text-style-13px();
   }
 
-  @if ($font-size: 14px) {
+  @if ($font-size == 14) {
     @include text-style-14px();
   }
 
-  @if ($font-size: 16px) {
+  @if ($font-size == 16) {
     @include text-style-16px();
   }
 
-  @if ($font-size: 18px) {
+  @if ($font-size == 18) {
     @include text-style-18px();
   }
 
-  @if ($font-size: 24px) {
+  @if ($font-size == 24) {
     @include text-style-24px();
   }
 
